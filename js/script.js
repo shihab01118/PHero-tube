@@ -4,6 +4,7 @@ const loadCategories = async () => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/categories`);
     const data = await response.json();
     const categories = data.data;
+    
     categories.forEach(category => {
         const categoryButton = document.createElement('div');
         categoryButton.innerHTML = `
@@ -15,9 +16,12 @@ const loadCategories = async () => {
 
 const displayCategories = async category_id => {
     const cardContainer = document.getElementById('card-container');
+    cardContainer.textContent = '';
+
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${category_id}`);
     const data = await response.json();
     const videos = data.data;
+
     videos.forEach(video => {
         console.log(video)
         const videoCard = document.createElement('div');
@@ -32,12 +36,13 @@ const displayCategories = async category_id => {
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <h2 class="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Buy Now</button>
+                    <div class="space-y-2">
+                        <h2 class="card-title">${video.title}</h2>
+                        <div class="flex gap-2 items-center">
+                            <p>${video.authors[0]?.profile_name}</p>
+                            <span>${video.authors[0]?.verified ? "<img src='./images/verified.png'>" : ""}
                         </div>
+                        <p>${video.others?.views} views</p>
                     </div>
                 </div>
             </div>
