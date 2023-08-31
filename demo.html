@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Define button styles */
+  .default-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .clicked-button {
+    background-color: #e74c3c;
+  }
+</style>
+</head>
+<body>
+
+<div id="button-container">
+  <!-- Buttons will be added here -->
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const buttonContainer = document.getElementById("button-container");
+
+  // Create and add buttons dynamically
+  for (let i = 1; i <= 5; i++) {
+    const button = document.createElement("button");
+    button.textContent = "Button " + i;
+    button.className = "default-button";
+    
+    // Add event listener to change color when clicked
+    button.addEventListener("click", function() {
+      // Remove clicked-button class from all buttons
+      const buttons = document.querySelectorAll(".default-button");
+      buttons.forEach(function(btn) {
+        btn.classList.remove("clicked-button");
+      });
+      
+      // Add clicked-button class to the clicked button
+      button.classList.add("clicked-button");
+    });
+    
+    // Append button to the container
+    buttonContainer.appendChild(button);
+  }
+});
+</script>
+
+</body>
+</html>
