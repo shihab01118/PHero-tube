@@ -1,55 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-  /* Define button styles */
-  .default-button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-  }
+  <title>Understanding Scope: var, let, and const in JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
 
-  .clicked-button {
-    background-color: #e74c3c;
-  }
-</style>
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    p, ul {
+      line-height: 1.6;
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
 
-<div id="button-container">
-  <!-- Buttons will be added here -->
+<header>
+  <h1>Understanding Scope: var, let, and const in JavaScript</h1>
+</header>
+
+<div class="container">
+  <p>JavaScript provides three main variable declarations: <code>var</code>, <code>let</code>, and <code>const</code>. These declarations differ not only in how they're used but also in their scope, which determines where the variable is accessible and how long it remains in memory.</p>
+
+  <h2>The Scope of var:</h2>
+  <p>The <code>var</code> keyword has function scope. This means that a variable declared with <code>var</code> is accessible within the function it's declared in, or globally if declared outside a function. This can sometimes lead to unintended behavior, like variable hoisting, where a variable declared with <code>var</code> is moved to the top of its scope during execution.</p>
+
+  <h2>The Scope of let:</h2>
+  <p>The <code>let</code> keyword was introduced in ECMAScript 6 (ES6) to address some of the issues with <code>var</code>. <code>let</code> has block scope, which means it's confined to the nearest block (e.g., inside a loop or conditional statement). This prevents unintended variable hoisting and allows for more predictable behavior.</p>
+
+  <h2>The Scope of const:</h2>
+  <p>Like <code>let</code>, <code>const</code> also has block scope. However, <code>const</code> variables cannot be reassigned after declaration. They are used for values that shouldn't change during the program's execution. While the value itself is immutable, it's important to note that objects and arrays declared with <code>const</code> can have their properties modified.</p>
+
+  <h2>Best Practices:</h2>
+  <ul>
+    <li>Prefer using <code>const</code> for variables that won't change.</li>
+    <li>Use <code>let</code> when you need to reassign a variable.</li>
+    <li>Minimize the use of <code>var</code> due to its function scope and potential issues.</li>
+  </ul>
+
+  <p>Understanding the scope of <code>var</code>, <code>let</code>, and <code>const</code> is crucial for writing maintainable and bug-free JavaScript code.</p>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const buttonContainer = document.getElementById("button-container");
-
-  // Create and add buttons dynamically
-  for (let i = 1; i <= 5; i++) {
-    const button = document.createElement("button");
-    button.textContent = "Button " + i;
-    button.className = "default-button";
-    
-    // Add event listener to change color when clicked
-    button.addEventListener("click", function() {
-      // Remove clicked-button class from all buttons
-      const buttons = document.querySelectorAll(".default-button");
-      buttons.forEach(function(btn) {
-        btn.classList.remove("clicked-button");
-      });
-      
-      // Add clicked-button class to the clicked button
-      button.classList.add("clicked-button");
-    });
-    
-    // Append button to the container
-    buttonContainer.appendChild(button);
-  }
-});
-</script>
+<footer>
+  <p>&copy; 2023 Your Name. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
+

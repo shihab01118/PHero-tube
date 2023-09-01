@@ -21,6 +21,8 @@ const displayCategories = async category_id => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${category_id}`);
     const data = await response.json();
     const videos = data.data;
+    let totalViewArray = [];
+
     if (videos.length > 0) {
         videos.forEach(video => {
             const seconds = parseInt(video.others?.posted_date);
@@ -55,6 +57,7 @@ const displayCategories = async category_id => {
             `;
             cardContainer.classList = 'grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 px-8';
             cardContainer.appendChild(videoCard);
+            totalViewArray.push(parseFloat(video.others?.views));
         })
     }
     else {
@@ -68,6 +71,16 @@ const displayCategories = async category_id => {
         cardContainer.classList = 'mt-12';
         cardContainer.appendChild(error);
     }
+    return totalViewArray;
+}
+
+const sortByView = () => {
+    const views = displayCategories();
+    console.log(views)
+}
+
+const showBlogs = () => {
+    window.location.href = "./blog.html";
 }
 
 loadCategories();

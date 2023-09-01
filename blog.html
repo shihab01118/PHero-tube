@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogs</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- google font link: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    
+    <header class="my-8">
+        <h1 class="text-center text-5xl font-semibold">Blogs</h1>
+    </header>
+    <main class="max-w-[800px] mx-auto">
+        <!-- blog-1 -->
+        <div class="space-y-2">
+            <h1 class="text-2xl font-semibold">Blog 1: Understanding Scope of var, let and const</h1>
+            <p>JavaScript provides three main variable declarations: <code>var</code>, <code>let</code>, and
+                <code>const</code>. These declarations differ not only in how they're used but also in their scope,
+                which determines where the variable is accessible and how long it remains in memory.</p>
+
+                
+            <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--UFnzCH1y--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kwam3jlrr3oi9n9m50yr.png" alt="" class="w-[60%] mx-auto">
+
+            <h2 class="text-xl font-medium">The Scope of var:</h2>
+            <p>The <code>var</code> keyword has function scope. This means that a variable declared with
+                <code>var</code> is accessible within the function it's declared in, or globally if declared outside a
+                function. This can sometimes lead to unintended behavior, like variable hoisting, where a variable
+                declared with <code>var</code> is moved to the top of its scope during execution.</p>
+
+            <h2 class="text-xl font-medium">The Scope of let:</h2>
+            <p>The <code>let</code> keyword was introduced in ECMAScript 6 (ES6) to address some of the issues with
+                <code>var</code>. <code>let</code> has block scope, which means it's confined to the nearest block
+                (e.g., inside a loop or conditional statement). This prevents unintended variable hoisting and allows
+                for more predictable behavior.</p>
+
+            <h2 class="text-xl font-medium">The Scope of const:</h2>
+            <p>Like <code>let</code>, <code>const</code> also has block scope. However, <code>const</code> variables
+                cannot be reassigned after declaration. They are used for values that shouldn't change during the
+                program's execution. While the value itself is immutable, it's important to note that objects and arrays
+                declared with <code>const</code> can have their properties modified.</p>
+        </div>
+    </main>
 </body>
+
 </html>
