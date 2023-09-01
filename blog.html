@@ -17,10 +17,10 @@
     <header class="my-8">
         <h1 class="text-center text-5xl font-semibold">Blogs</h1>
     </header>
-    <main class="max-w-[800px] mx-auto space-y-10">
+    <main class="max-w-[800px] mx-auto space-y-10 text-justify px-5 lg:px-0">
         <!-- blog-1 -->
-        <div class="space-y-2">
-            <h1 class="text-2xl font-semibold">Blog 1: Understanding Scope of var, let and const</h1>
+        <article class="space-y-2">
+            <h1 class="text-2xl font-semibold text-left">Blog 1: Understanding Scope of var, let and const</h1>
             <p>JavaScript provides three main variable declarations: <code>var</code>, <code>let</code>, and
                 <code>const</code>. These declarations differ not only in how they're used but also in their scope,
                 which determines where the variable is accessible and how long it remains in memory.
@@ -49,10 +49,10 @@
                 cannot be reassigned after declaration. They are used for values that shouldn't change during the
                 program's execution. While the value itself is immutable, it's important to note that objects and arrays
                 declared with <code>const</code> can have their properties modified.</p>
-        </div>
+        </article>
         <!-- blog-2 -->
-        <div class="space-y-2">
-            <h1 class="text-2xl font-semibold">Blog 2: Null vs Undefined in JavaScript</h1>
+        <article class="space-y-2">
+            <h1 class="text-2xl font-semibold text-left">Blog 2: Null vs Undefined in JavaScript</h1>
             <p>JavaScript, as a dynamically typed language, provides two special values to represent the absence of a
                 meaningful value: <code>null</code> and <code>undefined</code>. While they might seem similar, they have
                 distinct use cases and behaviors in JavaScript.</p>
@@ -77,11 +77,41 @@
                 </li>
                 <li>When accessing an object property that doesn't exist.</li>
             </ul>
-        </div>
+        </article>
 
         <!-- blog-3 -->
-        
+        <article class="space-y-2">
+            <h1 class="text-2xl font-semibold">Blog 3: REST API</h1>
+            <p>
+                Representational State Transfer, commonly known as REST, is a set of architectural principles for designing networked applications. It was introduced by Roy Fielding in his doctoral dissertation in 2000. REST API stands for "REpresentational State Transfer Application Programming Interface."
+            </p>
+            <p>
+                At its core, REST is an architectural style that uses a set of constraints to create a scalable and stateless communication between different components of a distributed system. These components can be anything from web servers, databases, or even services running on different machines or devices.
+            </p>
+            <img src="https://i.ytimg.com/vi/LooL6_chvN4/maxresdefault.jpg"
+                alt="" class="w-[60%] mx-auto">
+            <p class="text-lg font font-bold">
+                Key principles of REST API include:
+            </p>
+            <ul>
+                <li><strong>Statelessness:</strong> Each request from a client to a server must contain all the information needed to understand and fulfill that request. The server should not rely on any information from previous requests.</li>
+                <li><strong>Client-Server Architecture:</strong> There should be a clear separation between the client and server. The client is responsible for the user interface and user experience, while the server is responsible for processing requests and managing resources.</li>
+                <li><strong>Uniform Interface:</strong> REST APIs should have a consistent and uniform interface. This includes the use of standard HTTP methods (GET, POST, PUT, DELETE) and resource URIs (Uniform Resource Identifiers).</li>
+                <li><strong>Resource-Based:</strong> Resources are at the heart of REST. Everything is considered a resource, and these resources are identified by unique URIs. Resources can be anything, from data objects to services or entities.</li>
+                <li><strong>Stateless Communication:</strong> Communication between the client and server should be stateless. Each request should be independent, and the server should not retain any information about the client's state between requests.</li>
+            </ul>
+            <p>
+                In conclusion, a REST API is a way of designing and implementing networked applications that adhere to the principles of REST. It provides a standardized and efficient way for different software components to communicate over the internet or any other network, making it a fundamental concept in modern web development.
+            </p>
+        </article>
+        <button id="btn-go-home" class="btn bg- capitalize text-white bg-[#FF1F3D] block mx-auto">Go Home</button>
     </main>
+
+    <script>
+        document.getElementById('btn-go-home').addEventListener('click', () => {
+            window.location.href = "./index.html";
+        })
+    </script>
 </body>
 
 </html>
