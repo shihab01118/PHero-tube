@@ -17,28 +17,32 @@
     <header class="my-8">
         <h1 class="text-center text-5xl font-semibold">Blogs</h1>
     </header>
-    <main class="max-w-[800px] mx-auto">
+    <main class="max-w-[800px] mx-auto space-y-10">
         <!-- blog-1 -->
         <div class="space-y-2">
             <h1 class="text-2xl font-semibold">Blog 1: Understanding Scope of var, let and const</h1>
             <p>JavaScript provides three main variable declarations: <code>var</code>, <code>let</code>, and
                 <code>const</code>. These declarations differ not only in how they're used but also in their scope,
-                which determines where the variable is accessible and how long it remains in memory.</p>
+                which determines where the variable is accessible and how long it remains in memory.
+            </p>
 
-                
-            <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--UFnzCH1y--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kwam3jlrr3oi9n9m50yr.png" alt="" class="w-[60%] mx-auto">
+
+            <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--UFnzCH1y--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kwam3jlrr3oi9n9m50yr.png"
+                alt="" class="w-[60%] mx-auto">
 
             <h2 class="text-xl font-medium">The Scope of var:</h2>
             <p>The <code>var</code> keyword has function scope. This means that a variable declared with
                 <code>var</code> is accessible within the function it's declared in, or globally if declared outside a
                 function. This can sometimes lead to unintended behavior, like variable hoisting, where a variable
-                declared with <code>var</code> is moved to the top of its scope during execution.</p>
+                declared with <code>var</code> is moved to the top of its scope during execution.
+            </p>
 
             <h2 class="text-xl font-medium">The Scope of let:</h2>
             <p>The <code>let</code> keyword was introduced in ECMAScript 6 (ES6) to address some of the issues with
                 <code>var</code>. <code>let</code> has block scope, which means it's confined to the nearest block
                 (e.g., inside a loop or conditional statement). This prevents unintended variable hoisting and allows
-                for more predictable behavior.</p>
+                for more predictable behavior.
+            </p>
 
             <h2 class="text-xl font-medium">The Scope of const:</h2>
             <p>Like <code>let</code>, <code>const</code> also has block scope. However, <code>const</code> variables
@@ -46,6 +50,37 @@
                 program's execution. While the value itself is immutable, it's important to note that objects and arrays
                 declared with <code>const</code> can have their properties modified.</p>
         </div>
+        <!-- blog-2 -->
+        <div class="space-y-2">
+            <h1 class="text-2xl font-semibold">Blog 2: Null vs Undefined in JavaScript</h1>
+            <p>JavaScript, as a dynamically typed language, provides two special values to represent the absence of a
+                meaningful value: <code>null</code> and <code>undefined</code>. While they might seem similar, they have
+                distinct use cases and behaviors in JavaScript.</p>
+            <img src="https://www.syncfusion.com/blogs/wp-content/uploads/2022/11/Null-vs.-Undefined-in-JavaScript-1.png"
+                alt="" class="w-[60%] mx-auto">
+            <h2 class="text-xl font-medium">The Use Cases of <code>null</code></h2>
+            <p><code>null</code> is a deliberate absence of any object value. It is often used when a variable should
+                explicitly have no value or when you want to reset a variable's value to nothing.</p>
+            <p class="text-lg">Common use cases of <code>null</code> include:</p>
+            <ul class="list-disc ms-10">
+                <li>Initializing a variable that is expected to hold an object later in the program.</li>
+                <li>Resetting a variable or property to indicate no current value.</li>
+            </ul>
+
+            <h2 class="text-xl font-medium">The Use Cases of <code>undefined</code></h2>
+            <p><code>undefined</code> represents a variable that has been declared but has not been assigned a value. It
+                can also occur as the default return value of a function that doesn't explicitly return anything.</p>
+            <p class="text-lg">Common use cases of <code>undefined</code> include:</p>
+            <ul class="list-disc ms-10">
+                <li>When a variable is declared but not initialized, it will have the value <code>undefined</code>.</li>
+                <li>As the default value of function parameters that haven't been provided when calling the function.
+                </li>
+                <li>When accessing an object property that doesn't exist.</li>
+            </ul>
+        </div>
+
+        <!-- blog-3 -->
+        
     </main>
 </body>
 

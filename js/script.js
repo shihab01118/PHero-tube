@@ -8,7 +8,7 @@ const handleCategories = async () => {
     categories.forEach(category => {
         const categoryButton = document.createElement('div');
         categoryButton.innerHTML = `
-        <button onclick="loadCategories('${category.category_id}')" class="btn bg-gray-200 font-medium text-lg text-[#252525] capitalize">${category.category}</button>
+        <button onclick="loadCategories('${category.category_id}')" class="btn btn-category bg-gray-200 font-medium text-lg text-[#252525] capitalize">${category.category}</button>
         `;
         categoryContainer.appendChild(categoryButton);
     })
