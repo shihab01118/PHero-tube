@@ -26,12 +26,14 @@ const displayCategories = async category_id => {
             const seconds = parseInt(video.others?.posted_date);
             const hours = parseInt(seconds / 3600);
             const minutes = parseInt((seconds % 3600) / 60);
-            const time = `${hours} hrs ${minutes} min ago`
+            const time = `${hours} hrs ${minutes} min ago`;
+            const div = `<span id="time-display" class="absolute top-[150px] right-2 bg-[#171717] px-2 py-1 rounded text-white text-[10px]">${time}</span>`;
 
             const videoCard = document.createElement('div');
             videoCard.innerHTML = `
                 <div class="card bg-base-100 shadow-xl rounded-lg">
                     <figure><img src=${video.thumbnail} class="h-[180px] w-full rounded-lg"/></figure>
+                    <div>${video.others?.posted_date ? div : ''}</div>
                     <div class="flex gap-2 mt-4 mb-4 ps-2">
                         <div>
                             <div class="avatar">
@@ -44,7 +46,7 @@ const displayCategories = async category_id => {
                             <h2 class="card-title">${video.title}</h2>
                             <div class="flex gap-1 items-center card-text mt-1 mb-2">
                                 <p>${video.authors[0]?.profile_name}</p>
-                                <span>${video.authors[0]?.verified ? "<img src='./images/verified.png'>" : ""}
+                                <span>${video.authors[0]?.verified ? "<img src='./images/verified.png'>" : ""}</span>
                             </div>
                             <p class="card-text">${video.others?.views} views</p>
                         </div>
