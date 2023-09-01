@@ -1,4 +1,4 @@
-const loadCategories = async () => {
+const handleCategories = async () => {
     const categoryContainer = document.getElementById('button-container');
 
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/categories`);
@@ -8,20 +8,33 @@ const loadCategories = async () => {
     categories.forEach(category => {
         const categoryButton = document.createElement('div');
         categoryButton.innerHTML = `
-        <button onclick="displayCategories('${category.category_id}')" class="btn bg-gray-200 font-medium text-lg text-[#252525] capitalize">${category.category}</button>
+        <button onclick="loadCategories('${category.category_id}')" class="btn bg-gray-200 font-medium text-lg text-[#252525] capitalize">${category.category}</button>
         `;
         categoryContainer.appendChild(categoryButton);
     })
 }
 
-const displayCategories = async category_id => {
+let isSort = false;
+let currentCategory;
+
+const loadCategories = async (category_id, isSort) => {
     const cardContainer = document.getElementById('card-container');
     cardContainer.textContent = '';
+    currentCategory = category_id;
 
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${category_id}`);
     const data = await response.json();
     const videos = data.data;
-    let totalViewArray = [];
+
+    let compare = (a, b) => {
+        if (parseInt(b.others?.views) < parseInt(a.others?.views)) return -1;
+        if (parseInt(b.others?.views) > parseInt(a.others?.views)) return 1;
+        return 0;
+    }
+
+    if (isSort == true) {
+        videos.sort(compare)
+    }
 
     if (videos.length > 0) {
         videos.forEach(video => {
@@ -57,7 +70,6 @@ const displayCategories = async category_id => {
             `;
             cardContainer.classList = 'grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 px-8';
             cardContainer.appendChild(videoCard);
-            totalViewArray.push(parseFloat(video.others?.views));
         })
     }
     else {
@@ -71,17 +83,16 @@ const displayCategories = async category_id => {
         cardContainer.classList = 'mt-12';
         cardContainer.appendChild(error);
     }
-    return totalViewArray;
 }
 
-const sortByView = () => {
-    const views = displayCategories();
-    console.log(views)
+const sortByView =  () => {
+    isSort = true;
+    loadCategories(currentCategory, isSort);
 }
 
 const showBlogs = () => {
     window.location.href = "./blog.html";
 }
 
-loadCategories();
-displayCategories('1000')
+handleCategories();
+loadCategories('1000')
