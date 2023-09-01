@@ -8,7 +8,7 @@ const handleCategories = async () => {
     categories.forEach(category => {
         const categoryButton = document.createElement('div');
         categoryButton.innerHTML = `
-        <button onclick="loadCategories('${category.category_id}')" class="btn btn-category bg-gray-200 font-medium text-lg text-[#252525] capitalize">${category.category}</button>
+        <button onclick="loadCategories('${category.category_id}')" class="btn rounded-lg md:text-lg bg-gray-200 font-medium text-[#252525] capitalize">${category.category}</button>
         `;
         categoryContainer.appendChild(categoryButton);
     })
@@ -68,7 +68,7 @@ const loadCategories = async (category_id, isSort) => {
                     </div>
                 </div>
             `;
-            cardContainer.classList = 'grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 px-8';
+            cardContainer.classList = 'grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 px-8 md:px-16 lg:px-0';
             cardContainer.appendChild(videoCard);
         })
     }
